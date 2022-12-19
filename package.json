@@ -1,0 +1,14 @@
+{
+  "name": "bookandquill",
+  "version": "1.0.0",
+  "description": "book and quill from da minecraft",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Skiletro",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^22.0.0"
+  }
+}
