@@ -1,12 +1,90 @@
-
-.draggable-area{
-    width:300px;
-    height:300px;
-    background-color:blue;
-    color:white;
-    -webkit-app-region: drag; /* this is the important part */
+:root {
+    --scale: 4;
+    --width: calc(146px * var(--scale));
+    --height: calc(180px * var(--scale));
 }
 
-h1 {
-    background-color: white;
+@font-face {
+    font-family: Minecraft;
+    src: url("Minecraft.ttf");
+}
+
+body {
+    margin: 0;
+    font-family: Minecraft;
+}
+
+#book {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    -webkit-app-region: drag; /* this is the important part */
+    background: url("justbook.png");
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    background-size: 100% 100%;
+    width: var(--width);
+    height: var(--height);
+    box-sizing: border-box;
+    padding: 10%;
+}
+
+#header {
+    width: 100%;
+    text-align: right;
+}
+
+#header p {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+textarea {
+    -webkit-app-region: no-drag;
+    font-family: inherit;
+    font-size: 2em;
+    resize: none;
+    background: none;
+    border: none;
+    outline: none;
+    /*width: calc(var(--width) * 0.75);
+    height: calc(var(--height) * 0.85)*/
+    width: 100%;
+    height: 100%;
+}
+
+#arrows {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 90%;
+}
+
+#arrows button {
+    border: none;
+    display: block;
+    background: none;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    background-size: 100% 100%;
+    width: calc(18px * var(--scale));
+    height: calc(10px * var(--scale));
+}
+
+#arrows #left {
+    background-image: url("arrow_l.png");
+}
+
+#arrows #left:hover {
+    background-image: url("arrow_l_h.png");
+}
+
+#arrows #right {
+    background-image: url("arrow_r.png");
+}
+
+#arrows #right:hover {
+    background-image: url("arrow_r_h.png");
 }
