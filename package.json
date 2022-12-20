@@ -1,5 +1,6 @@
 {
   "name": "bookandquill",
+  "productName": "Book and Quill",
   "version": "1.0.0",
   "description": "book and quill from da minecraft",
   "main": "main.js",
@@ -12,5 +13,8 @@
   "devDependencies": {
     "electron": "^22.0.0",
     "electron-builder": "^23.6.0"
+  },
+  "build": {
+    "appId": "skiletro.bookandquill"
   }
 }
