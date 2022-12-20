@@ -4,11 +4,13 @@
   "description": "book and quill from da minecraft",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build_portable": "electron-builder --win portable"
   },
   "author": "Skiletro",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^22.0.0"
+    "electron": "^22.0.0",
+    "electron-builder": "^23.6.0"
   }
 }
