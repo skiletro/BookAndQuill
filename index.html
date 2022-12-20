@@ -19,13 +19,13 @@
 <body>
     <div id="book">
         <div id="state_buttons">
-            <button id="minimize" onclick="minimizeWindow()"></button>
-            <button id="close" onclick="closeWindow()"></button>
+            <button id="minimize"></button>
+            <button id="close"></button>
         </div>
         <div id="header">
             Page x of y
         </div>
-        <textarea id="text" name="text" rows="14" cols="22" wrap="hard" spellcheck="false" onkeyup="limitTextArea(this, 14)"></textarea>
+        <div contenteditable="true" id="text" rows="14" cols="22" spellcheck="false"></div>
         <div id="arrows">
             <button id="left"></button>
             <button id="right"></button>

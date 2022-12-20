@@ -1,20 +1,24 @@
-const closeWindow = () => {
+document.getElementById('close').addEventListener('click', function() {
     window.close()
-}
+}, false)
 
-const minimizeWindow = () => {
+document.getElementById('minimize').addEventListener('click', function() {
     tools.minimize()
-}
+}, false)
+
+document.getElementById('text').addEventListener('keyup', function() {
+    // Something to stop it going over 14 lines ??
+}, false)
 
 // Thanks to https://www.techtalk7.com/limiting-number-of-lines-in-textarea/#comment-110101
 const limitTextArea = (textArea, maxLines) => {
     // TODO : Doesn't currently work when text wraps
-    let lines = textArea.value.replace(/\r/g, '').split('\n'), lines_removed, char_removed, i;
+    let lines = textArea.innerText.replace(/\r/g, '').split('\n'), lines_removed, char_removed, i;
     if (lines.length > maxLines) {
         lines = lines.splice(0, maxLines);
         lines_removed = 1
     }
-    textArea.value = lines.join('\n')
+    console.log(lines)
 }
 
 class Book {
@@ -52,11 +56,11 @@ class Book {
             
         this.pageIndicator.innerText = `Page ${this.currentPage} of ${this.usedPages}`
 
-        this.textBox.value = this.pageContents[this.currentPage-1]
+        this.textBox.innerText = this.pageContents[this.currentPage-1]
     }
 
     savePageContents() {
-        this.pageContents[this.currentPage-1] = document.getElementById('text').value
+        this.pageContents[this.currentPage-1] = document.getElementById('text').innerText
     }
 
     nextPage() {
