@@ -6,6 +6,7 @@ document.getElementById('minimize').addEventListener('click', function() {
     tools.minimize()
 }, false)
 
+/*
 document.getElementById('text').addEventListener('keyup', function() {
     // Something to stop it going over 14 lines ??
 }, false)
@@ -20,6 +21,7 @@ const limitTextArea = (textArea, maxLines) => {
     }
     console.log(lines)
 }
+*/
 
 class Book {
     constructor(pageIndicator, textBox, leftArrow, rightArrow) {
@@ -34,31 +36,28 @@ class Book {
     }
 
     update() {
+        // Checking to ensure that page counts have not gone out of bounds.
         if (this.currentPage < 1)
             this.currentPage = 1
 
-        if (this.currentPage > this.maxPages)
+        else if (this.currentPage > this.maxPages)
             this.currentPage = this.maxPages
 
-        if (this.usedPages < this.currentPage)
+        else if (this.usedPages < this.currentPage)
             this.usedPages = this.currentPage
 
-        // hide arrows if needed
-        if (this.currentPage <= 1)
-            leftArrow.style.visibility = "hidden"
-        else
-            leftArrow.style.visibility = "visible"
-
-        if (this.currentPage >= this.maxPages)
-            rightArrow.style.visibility = "hidden"
-        else
-            rightArrow.style.visibility = "visible"
+        // Hides arrows if they are expected to allow the user to go out of the range of the page counts.
+        leftArrow.style.visibility = (this.currentPage <= 1) ? "hidden" : "visible"
+        rightArrow.style.visibility = (this.currentPage >= this.maxPages) ? "hidden" : "visible"
             
+        // Sets the page indicator text to the right numbers
         this.pageIndicator.innerText = `Page ${this.currentPage} of ${this.usedPages}`
 
+        // Sets the textbox to the content of the page.
         this.textBox.innerText = this.pageContents[this.currentPage-1]
     }
 
+    // Inserts the content of the textbox into the array
     savePageContents() {
         this.pageContents[this.currentPage-1] = document.getElementById('text').innerText
     }
