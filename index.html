@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta
+    <!--<meta
     http-equiv="Content-Security-Policy"
     content="default-src 'self'; script-src 'self'"
     />
     <meta
       http-equiv="X-Content-Security-Policy"
       content="default-src 'self'; script-src 'self'"
-    />
+    /> -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -18,14 +18,19 @@
 </head>
 <body>
     <div id="book">
-        <div id="header">
-            <p>Page x of y</p>
+        <div id="state_buttons">
+            <button id="minimize" onclick="minimizeWindow()"></button>
+            <button id="close" onclick="closeWindow()"></button>
         </div>
-        <textarea id="text" name="text" rows="12" cols="50">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, odio accusantium molestiae beatae non dolorum illo labore ipsa minima doloribus fugiat culpa quidem deserunt maiores cupiditate minus voluptatibus consequatur cum?</textarea>
+        <div id="header">
+            Page x of y
+        </div>
+        <textarea id="text" name="text" rows="14" cols="22" wrap="hard" spellcheck="false" onkeyup="limitTextArea(this, 14)"></textarea>
         <div id="arrows">
             <button id="left"></button>
             <button id="right"></button>
         </div>
     </div>
+    <script src="./renderer.js"></script>
 </body>
 </html>
