@@ -6,7 +6,7 @@
 
 @font-face {
     font-family: Minecraft;
-    src: url("Minecraft.otf");
+    src: url("../fonts/Minecraft.otf");
 }
 
 body {
@@ -37,11 +37,11 @@ body {
 }
 
 #state_buttons #close {
-    background-image: url("close.png");
+    background-image: url("../images/close.png");
 }
 
 #state_buttons #minimize {
-    background-image: url("minimize.png");
+    background-image: url("../images/minimize.png");
 }
 
 #book {
@@ -51,7 +51,7 @@ body {
     align-items: center;
     position: absolute;
     -webkit-app-region: drag; /* this is the important part */
-    background: transparent url("justbook.png") no-repeat;
+    background: transparent url("../images/justbook.png") no-repeat;
     image-rendering: pixelated;
     background-size: 100% 100%;
     width: var(--width);
@@ -104,17 +104,17 @@ body {
 }
 
 #arrows #left {
-    background-image: url("arrow_l.png");
+    background-image: url("../images/arrow_l.png");
 }
 
 #arrows #left:hover {
-    background-image: url("arrow_l_h.png");
+    background-image: url("../images/arrow_l_h.png");
 }
 
 #arrows #right {
-    background-image: url("arrow_r.png");
+    background-image: url("../images/arrow_r.png");
 }
 
 #arrows #right:hover {
-    background-image: url("arrow_r_h.png");
+    background-image: url("../images/arrow_r_h.png");
 }
