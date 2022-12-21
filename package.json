@@ -6,7 +6,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build_portable": "electron-builder --win portable"
+    "dist": "electron-builder"
   },
   "author": "Skiletro",
   "license": "MIT",
@@ -15,6 +15,10 @@
     "electron-builder": "^23.6.0"
   },
   "build": {
-    "appId": "skiletro.bookandquill"
+    "appId": "skiletro.bookandquill",
+    "win": {
+      "target": ["portable", "msi"],
+      "icon": "build/icon.png"
+    }
   }
 }
