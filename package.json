@@ -1,7 +1,7 @@
 {
   "name": "bookandquill",
   "productName": "Book and Quill",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Electron app mimicking the Book and Quill item from Minecraft",
   "main": "main.js",
   "scripts": {
