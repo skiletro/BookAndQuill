@@ -4,16 +4,23 @@
 <center><img src="https://i.imgur.com/9wyqFGS.jpg"></img></center>
 
 # Todo
-- [ ] Refactor the entire thing (just a prototype rn)
+- [x] Page turning
+- [x] Saving to file
+- [x] Loading from file
+- [ ] Refactor Javascript backend
 - [ ] Test on Linux
-- [ ] Test on macOS (prob never gonna happen)
+- [ ] Test on macOS
+
+Any suggestions for features would be much appreciated!
 
 # Running
 `yarn install`
+
 `yarn run start`
 
 # Compiling
 Currently set up to compile to a single portable `.exe`. This takes a while to launch, but you can always use the unpacked version found in `dist/win-unpacked`
+
 `yarn run build_portable`
 
 # Notes
