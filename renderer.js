@@ -1,38 +1,33 @@
+window.onkeydown = function(evt) {
+    // Thanks to https://github.com/electron/electron/issues/8793#issuecomment-648307765 - Disables zooming with CTRL+ and CTRL-
+    if ((evt.code == "Minus" || evt.code == "Equal") && (evt.ctrlKey || evt.metaKey)) {evt.preventDefault()}
+}
+
+// Save button
+document.getElementById('save').addEventListener('click', function() {
+    book.save()
+}, false)
+
+// Close button
 document.getElementById('close').addEventListener('click', function() {
     window.close()
 }, false)
 
+// Minimize button
 document.getElementById('minimize').addEventListener('click', function() {
     tools.minimize()
 }, false)
 
-/*
-document.getElementById('text').addEventListener('keyup', function() {
-    // Something to stop it going over 14 lines ??
-}, false)
-
-// Thanks to https://www.techtalk7.com/limiting-number-of-lines-in-textarea/#comment-110101
-const limitTextArea = (textArea, maxLines) => {
-    // TODO : Doesn't currently work when text wraps
-    let lines = textArea.innerText.replace(/\r/g, '').split('\n'), lines_removed, char_removed, i;
-    if (lines.length > maxLines) {
-        lines = lines.splice(0, maxLines);
-        lines_removed = 1
-    }
-    console.log(lines)
-}
-*/
-
 class Book {
-    constructor(pageIndicator, textBox, leftArrow, rightArrow) {
+    constructor() {
         this.maxPages = 20
         this.currentPage = 1
         this.usedPages = 1
         this.pageContents = Array(this.maxPages).fill("")
-        this.pageIndicator = pageIndicator
-        this.textBox = textBox
-        this.leftArrow = leftArrow
-        this.rightArrow = rightArrow
+        this.pageIndicator = document.getElementById('header')
+        this.textBox = document.getElementById('text')
+        this.leftArrow = document.getElementById('left')
+        this.rightArrow = document.getElementById('right')
     }
 
     update() {
@@ -47,8 +42,8 @@ class Book {
             this.usedPages = this.currentPage
 
         // Hides arrows if they are expected to allow the user to go out of the range of the page counts.
-        leftArrow.style.visibility = (this.currentPage <= 1) ? "hidden" : "visible"
-        rightArrow.style.visibility = (this.currentPage >= this.maxPages) ? "hidden" : "visible"
+        this.leftArrow.style.visibility = (this.currentPage <= 1) ? "hidden" : "visible"
+        this.rightArrow.style.visibility = (this.currentPage >= this.maxPages) ? "hidden" : "visible"
             
         // Sets the page indicator text to the right numbers
         this.pageIndicator.innerText = `Page ${this.currentPage} of ${this.usedPages}`
@@ -73,13 +68,14 @@ class Book {
         this.currentPage--
         this.update()
     }
+
+    save() {
+        this.savePageContents()
+        console.log(this.pageContents)
+    }
 }
 
-const pageHeader = document.getElementById('header')
-const textBox = document.getElementById('text')
-const leftArrow = document.getElementById('left')
-const rightArrow = document.getElementById('right')
-const book = new Book(pageHeader, textBox, leftArrow, rightArrow)
+const book = new Book()
 book.update()
 
 document.getElementById('left').addEventListener('click', function() {

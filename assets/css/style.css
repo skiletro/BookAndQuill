@@ -18,10 +18,11 @@ body {
 #state_buttons {
     -webkit-app-region: no-drag;
     display: flex;
-    gap: calc(var(--scale) * 2px);
+    flex-direction: row;
+    gap: calc(2px * var(--scale));
     position: absolute;
-    right: calc(10px * var(--scale));
     top: calc(3px * var(--scale));
+    width: 85%
 }
 
 #state_buttons button {
@@ -36,12 +37,17 @@ body {
     border: none;
 }
 
-#state_buttons #close {
-    background-image: url("../images/close.png");
+#state_buttons #save {
+    background-image: url("../images/save.png");
 }
 
 #state_buttons #minimize {
+    margin-left: auto;
     background-image: url("../images/minimize.png");
+}
+
+#state_buttons #close {
+    background-image: url("../images/close.png");
 }
 
 #book {
@@ -57,7 +63,6 @@ body {
     width: var(--width);
     height: var(--height);
     box-sizing: border-box;
-    --base-padding: calc(15px * var(--scale));
     padding: calc(12px * var(--scale)) calc(15px * var(--scale));
 }
 
