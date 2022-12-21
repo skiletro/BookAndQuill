@@ -64,12 +64,16 @@ button {
     height: calc(3px * var(--scale));
 }
 
+#state_buttons button:hover {
+    filter: brightness(50) hue-rotate(-60deg) saturate(90%); /* temp until i can make something nicer */
+}
+
 #state_buttons #save {
     background-image: url("../images/save.png");
 }
 
 #state_buttons #load {
-    background-image: url("../images/save.png");
+    background-image: url("../images/load.png");
 }
 
 #state_buttons #minimize {
