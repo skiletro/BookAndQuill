@@ -8,5 +8,9 @@ contextBridge.exposeInMainWorld('versions', {
 })
 
 contextBridge.exposeInMainWorld('tools', {
-  minimize: () => ipcRenderer.send('minimize')
+  minimize: () => ipcRenderer.send('minimize'),
+  saveDialog: (data) => ipcRenderer.send('save-dialog', data),
+  loadDialog: () => {
+    return ipcRenderer.sendSync('load-dialog')
+  }
 })

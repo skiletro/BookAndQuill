@@ -1,23 +1,3 @@
-window.onkeydown = function(evt) {
-    // Thanks to https://github.com/electron/electron/issues/8793#issuecomment-648307765 - Disables zooming with CTRL+ and CTRL-
-    if ((evt.code == "Minus" || evt.code == "Equal") && (evt.ctrlKey || evt.metaKey)) {evt.preventDefault()}
-}
-
-// Save button
-document.getElementById('save').addEventListener('click', function() {
-    book.save()
-}, false)
-
-// Close button
-document.getElementById('close').addEventListener('click', function() {
-    window.close()
-}, false)
-
-// Minimize button
-document.getElementById('minimize').addEventListener('click', function() {
-    tools.minimize()
-}, false)
-
 class Book {
     constructor() {
         this.maxPages = 20
@@ -70,8 +50,55 @@ class Book {
     }
 
     save() {
+        this.savePageContents()
+
+        let json = JSON
+        json.currentPage = this.currentPage
+        json.usedPages = this.usedPages
+        json.pageContents = this.pageContents
+
+        tools.saveDialog(JSON.stringify(json, null, 2))
+    }
+
+    load() {
+        let result = tools.loadDialog()
+
+        if (result != {}) {
+            this.currentPage = result.currentPage
+            this.usedPages = result.usedPages
+            this.pageContents = result.pageContents
+            this.update()
+        } else {
+            // error
+        }
     }
 }
+
+window.onkeydown = function(evt) {
+    // Thanks to https://github.com/electron/electron/issues/8793#issuecomment-648307765 - Disables zooming with CTRL+ and CTRL-
+    if ((evt.code == "Minus" || evt.code == "Equal") && (evt.ctrlKey || evt.metaKey)) {evt.preventDefault()}
+}
+
+// Save button
+document.getElementById('save').addEventListener('click', function() {
+    book.save()
+}, false)
+
+
+// Load button
+document.getElementById('load').addEventListener('click', function() {
+    book.load()
+}, false)
+
+// Close button
+document.getElementById('close').addEventListener('click', function() {
+    window.close()
+}, false)
+
+// Minimize button
+document.getElementById('minimize').addEventListener('click', function() {
+    tools.minimize()
+}, false)
 
 const book = new Book()
 book.update()
