@@ -18,17 +18,15 @@
 <body>
     <div id="book">
         <div id="state_buttons">
-            <button id="save"></button>
-            <button id="minimize"></button>
-            <button id="close"></button>
+            <button id="save">Save</button>
+            <button id="minimize">Minimize</button>
+            <button id="close">Close</button>
         </div>
-        <div id="header">
-            Page x of y
-        </div>
-        <div contenteditable="true" id="text" rows="14" cols="22" spellcheck="false"></div>
+        <div id="header">Page X of Y</div>
+        <div id="textbox" contenteditable="true" rows="14" cols="22" spellcheck="false"></div> <!-- i hate textarea!!! -->
         <div id="arrows">
-            <button id="left"></button>
-            <button id="right"></button>
+            <button id="left">Previous Page</button>
+            <button id="right">Next Page</button>
         </div>
     </div>
     <script src="./renderer.js"></script>

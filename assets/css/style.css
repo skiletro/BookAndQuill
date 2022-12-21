@@ -1,3 +1,13 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
 :root {
     --scale: 4;
     --width: calc(146px * var(--scale));
@@ -10,31 +20,48 @@
 }
 
 body {
-    margin: 0;
     font-family: Minecraft;
     font-size: calc(8.4px * var(--scale));
 }
 
-#state_buttons {
+button {
+    display: block;
+    font-size: 0;
+    background: none;
+    border: none;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
     -webkit-app-region: no-drag;
+}
+
+#book {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background: transparent url("../images/justbook.png") no-repeat;
+    image-rendering: pixelated;
+    background-size: 100% 100%;
+    width: var(--width);
+    height: var(--height);
+    padding: calc(12px * var(--scale)) calc(15px * var(--scale));
+    -webkit-app-region: drag;
+}
+
+#state_buttons {
+    display: flex;
+    position: absolute;
     flex-direction: row;
     gap: calc(2px * var(--scale));
-    position: absolute;
     top: calc(3px * var(--scale));
     width: 85%
 }
 
 #state_buttons button {
-    -webkit-app-region: no-drag;
-    background: none;
-    background-repeat: no-repeat;
-    image-rendering: pixelated;
-    background-size: 100% 100%;
     width: calc(3px * var(--scale));
     height: calc(3px * var(--scale));
-    display: block;
-    border: none;
 }
 
 #state_buttons #save {
@@ -50,35 +77,14 @@ body {
     background-image: url("../images/close.png");
 }
 
-#book {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    -webkit-app-region: drag; /* this is the important part */
-    background: transparent url("../images/justbook.png") no-repeat;
-    image-rendering: pixelated;
-    background-size: 100% 100%;
-    width: var(--width);
-    height: var(--height);
-    box-sizing: border-box;
-    padding: calc(12px * var(--scale)) calc(15px * var(--scale));
-}
-
 #header {
     width: 100%;
     text-align: right;
+    user-select: none;
+    -webkit-app-region: drag;
 }
 
-#header p {
-    margin: 0;
-}
-
-#text {
-    -webkit-app-region: no-drag;
-    font-family: inherit;
-    font-size: inherit;
+#textbox {
     resize: none;
     border: none;
     outline: none;
@@ -87,6 +93,7 @@ body {
     float: left;
     overflow-y: hidden;
     word-wrap: break-word;
+    -webkit-app-region: no-drag;
 }
 
 #arrows {
@@ -97,13 +104,6 @@ body {
 }
 
 #arrows button {
-    -webkit-app-region: no-drag;
-    border: none;
-    display: block;
-    background: none;
-    background-repeat: no-repeat;
-    image-rendering: pixelated;
-    background-size: 100% 100%;
     width: calc(18px * var(--scale));
     height: calc(10px * var(--scale));
 }

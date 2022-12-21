@@ -25,7 +25,7 @@ class Book {
         this.usedPages = 1
         this.pageContents = Array(this.maxPages).fill("")
         this.pageIndicator = document.getElementById('header')
-        this.textBox = document.getElementById('text')
+        this.textBox = document.getElementById('textbox')
         this.leftArrow = document.getElementById('left')
         this.rightArrow = document.getElementById('right')
     }
@@ -54,7 +54,7 @@ class Book {
 
     // Inserts the content of the textbox into the array
     savePageContents() {
-        this.pageContents[this.currentPage-1] = document.getElementById('text').innerText
+        this.pageContents[this.currentPage-1] = this.textBox.innerText
     }
 
     nextPage() {
@@ -70,8 +70,6 @@ class Book {
     }
 
     save() {
-        this.savePageContents()
-        console.log(this.pageContents)
     }
 }
 
