@@ -47,7 +47,7 @@ button {
     width: var(--width);
     height: var(--height);
     padding: calc(12px * var(--scale)) calc(15px * var(--scale));
-    /*-webkit-app-region: drag;*/
+    -webkit-app-region: drag;
 }
 
 #state_buttons {

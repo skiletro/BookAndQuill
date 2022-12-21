@@ -63,13 +63,11 @@ class Book {
     load() {
         let result = tools.loadDialog()
 
-        if (result != {}) {
+        if (Object.keys(result).length != 0) {
             this.currentPage = result.currentPage
             this.usedPages = result.usedPages
             this.pageContents = result.pageContents
             this.update()
-        } else {
-            // error
         }
     }
 }
